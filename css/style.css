@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #dfe3ee;
+}
+
+header{
+    height: 150px;
+    background-color: #3b5998;
+    color: #ffffff;
+    padding: 2em 0em 2em 0em;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 #00000033, 0 10px 20px 0 #00000030;
+}
+
+main{
+    color: #000000;
+    padding-left: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: larger;
+}
+
+
+.login-form{
+    width: 30em;    
+    margin: 50px 80px 50px 80px;
+    border: 0.5px solid grey;
+    border-radius: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;    
+}
+
+header nav{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+nav a.class{
+    cursor: default;
+}
+
+input{
+    text-align: center;
+    font-size: large;
+}
