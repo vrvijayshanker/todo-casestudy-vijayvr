@@ -47,11 +47,11 @@ function ReadfromServer(){
         for (var i = 0; i < response.length; i++) {
 
           if(response[i].completed){
-            output += "<label style = 'color: grey; font-style: italic;'><input type='checkbox'  checked disabled='true' value="+response[i].completed+">&nbsp&nbsp"+response[i].title+"</label></br>"; //+= for appending ALSO name changed to title because thats the attribute in server
+            output += "<label style = 'color: grey; font-style: italic;'><input type='checkbox' checked disabled='true' value="+response[i].completed+">&nbsp&nbsp"+response[i].title+"</label></br>"; //+= for appending ALSO name changed to title because thats the attribute in server
             // console.log(response[i].id);
           }
           else{
-            output += "<label><input type='checkbox' value="+response[i].completed+">&nbsp&nbsp"+response[i].title+"</label></br>";
+            output += "<label><input type='checkbox' class='checkbox' onchange='checkCount()' value="+response[i].completed+">&nbsp&nbsp"+response[i].title+"</label></br>";
           }
           
           // console.log(i+" "+response[i].completed);
@@ -69,3 +69,33 @@ function ReadfromServer(){
     //sending
     xhttp.send();
   }
+
+// ------------------------------ Selecting 5 values ----------------------------------------
+function checkCount(){
+  var check = new Promise(function(resolve,reject){
+  var list = document.getElementsByClassName("checkbox");
+  // console.log(list);
+  var count = 0;
+  for (var i=0; i<list.length; i++){
+      
+    if (list[i].checked){
+      count++;        
+      }
+    // console.log(count);
+    }
+    if(count == 5){
+      resolve("Congrats. 5 Tasks have been Successfully Completed!!");
+    }
+    else{
+        reject("More or less than 5 items selected");
+    }  
+    
+})
+check
+.then(function(done){
+    alert(done);
+})
+.catch(function(notDone){
+    console.log(notDone);
+});
+}
