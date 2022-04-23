@@ -7,18 +7,28 @@ if(submitButton){
 function validateLogin(event){
     let username = document.getElementById("uname");
     let password = document.getElementById("pswd");
+    let errmsg = "";
   
     if(username.value == "" || password.value == ""){
-      alert("Fields cannot be empty");
+      errmsg = "Fields Cannot be Empty";
       event.preventDefault();
+      return errorDisplay(errmsg);
+      
     }
     else if(username.value == "admin" && password.value == "12345"){
       console.log("login successful");
     }
     else{
-      alert("Credentials don't match");
+      errmsg = "Credentials Don't Match";
       event.preventDefault();
+      return errorDisplay(errmsg);
+      
     }  
+}
+
+function errorDisplay(err){
+  alert(err);
+  return false;
 }
 
 // ------------------------------ Reading from server ----------------------------------------
